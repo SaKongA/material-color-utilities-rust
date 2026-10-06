@@ -17,10 +17,8 @@
 //! A Rust implementation of Google's Material Color Utilities for Material 3
 //! dynamic color and color science.
 
-#[cfg(test)]
-mod tests {
-    #[test]
-    fn test_initial_setup() {
-        assert!(true);
-    }
-}
+pub mod cam;
+pub mod utils;
+
+pub use cam::{Cam, Hct, ViewingConditions};
+pub use utils::{Argb, Vec3};
