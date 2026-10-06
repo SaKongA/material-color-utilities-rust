@@ -23,6 +23,7 @@ pub mod contrast;
 pub mod dislike;
 pub mod palettes;
 pub mod quantize;
+pub mod score;
 pub mod temperature;
 pub mod utils;
 
@@ -31,6 +32,7 @@ pub use cam::{Cam, Hct, ViewingConditions};
 pub use contrast::{darker, darker_unsafe, lighter, lighter_unsafe, ratio_of_tones, ratio_of_ys};
 pub use dislike::{fix_if_disliked, is_disliked};
 pub use palettes::{CorePalettes, KeyColor, TonalPalette};
-pub use quantize::Lab;
+pub use quantize::{quantize_celebi, quantize_wsmeans, quantize_wu, Lab, QuantizerResult};
+pub use score::{ranked_suggestions, ScoreOptions};
 pub use temperature::TemperatureCache;
 pub use utils::{Argb, Vec3};

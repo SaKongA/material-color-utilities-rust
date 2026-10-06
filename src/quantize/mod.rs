@@ -16,6 +16,12 @@
 
 //! Quantization algorithms and color clustering utilities.
 
+pub mod celebi;
 pub mod lab;
+pub mod wsmeans;
+pub mod wu;
 
+pub use celebi::quantize_celebi;
 pub use lab::{int_from_lab, lab_from_int, Lab};
+pub use wsmeans::{quantize_wsmeans, QuantizerResult};
+pub use wu::quantize_wu;
