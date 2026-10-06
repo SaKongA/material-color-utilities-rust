@@ -1,5 +1,5 @@
 [package]
-name = "material-color-utilities"
+name = "material-color-utilities-rust"
 version = "0.1.0"
 edition = "2021"
 authors = ["SaKongA"]

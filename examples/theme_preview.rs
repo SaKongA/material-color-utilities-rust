@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-use material_color_utilities::{rgba_from_argb, Argb, DynamicScheme, Hct, TonalPalette};
+use material_color_utilities_rust::{rgba_from_argb, Argb, DynamicScheme, Hct, TonalPalette};
 use std::env;
 
 /// Formats an ARGB color as a 24-bit TrueColor ANSI colored block.

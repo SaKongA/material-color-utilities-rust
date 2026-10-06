@@ -3,5 +3,5 @@
 version = 4
 
 [[package]]
-name = "material-color-utilities"
+name = "material-color-utilities-rust"
 version = "0.1.0"

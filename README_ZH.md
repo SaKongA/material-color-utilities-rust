@@ -19,7 +19,7 @@ Google [Material Color Utilities](https://github.com/material-foundation/materia
 ## 快速上手
 
 ```rust
-use material_color_utilities::{DynamicScheme, Hct, rgba_from_argb};
+use material_color_utilities_rust::{DynamicScheme, Hct, rgba_from_argb};
 
 fn main() {
     // 1. 创建种子颜色

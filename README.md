@@ -19,7 +19,7 @@ A pure Rust implementation of Google's [Material Color Utilities](https://github
 ## Quick Start
 
 ```rust
-use material_color_utilities::{DynamicScheme, Hct, rgba_from_argb};
+use material_color_utilities_rust::{DynamicScheme, Hct, rgba_from_argb};
 
 fn main() {
     // 1. Create a seed color
