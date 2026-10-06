@@ -1,0 +1,15 @@
+[package]
+name = "material-color-utilities"
+version = "0.1.0"
+edition = "2021"
+authors = ["Guo Kexin"]
+license = "Apache-2.0"
+description = "A Rust implementation of Google's Material Color Utilities for Material 3 dynamic color and color science"
+readme = "README.md"
+repository = "https://github.com/SaKongA/material-color-utilities-rust"
+keywords = ["material-design", "color", "hct", "cam16", "material-you"]
+categories = ["graphics", "algorithms"]
+
+[dependencies]
+
+[dev-dependencies]
