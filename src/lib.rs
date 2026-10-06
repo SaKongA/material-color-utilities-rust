@@ -17,8 +17,20 @@
 //! A Rust implementation of Google's Material Color Utilities for Material 3
 //! dynamic color and color science.
 
+pub mod blend;
 pub mod cam;
+pub mod contrast;
+pub mod dislike;
+pub mod palettes;
+pub mod quantize;
+pub mod temperature;
 pub mod utils;
 
+pub use blend::{blend_cam16_ucs, blend_harmonize, blend_hct_hue};
 pub use cam::{Cam, Hct, ViewingConditions};
+pub use contrast::{darker, darker_unsafe, lighter, lighter_unsafe, ratio_of_tones, ratio_of_ys};
+pub use dislike::{fix_if_disliked, is_disliked};
+pub use palettes::{CorePalettes, KeyColor, TonalPalette};
+pub use quantize::Lab;
+pub use temperature::TemperatureCache;
 pub use utils::{Argb, Vec3};
