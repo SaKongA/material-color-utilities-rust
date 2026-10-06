@@ -74,6 +74,23 @@ pub fn argb_from_rgb(red: i32, green: i32, blue: i32) -> Argb {
         | ((blue as u32) & 0xff)
 }
 
+/// Converts RGBA components into an ARGB integer (`0xAARRGGBB`).
+#[inline]
+pub fn argb_from_rgba(red: u8, green: u8, blue: u8, alpha: u8) -> Argb {
+    ((alpha as u32) << 24) | ((red as u32) << 16) | ((green as u32) << 8) | (blue as u32)
+}
+
+/// Returns the (red, green, blue, alpha) components of an ARGB integer.
+#[inline]
+pub fn rgba_from_argb(argb: Argb) -> (u8, u8, u8, u8) {
+    (
+        red_from_argb(argb),
+        green_from_argb(argb),
+        blue_from_argb(argb),
+        alpha_from_argb(argb),
+    )
+}
+
 /// Linearizes an 8-bit sRGB color component in the range `[0, 255]`
 /// to linear RGB in the range `[0.0, 100.0]`.
 pub fn linearized(rgb_component: i32) -> f64 {
@@ -231,11 +248,7 @@ pub fn matrix_multiply(input: Vec3, matrix: &[[f64; 3]; 3]) -> Vec3 {
 mod tests {
     use super::*;
 
-    const MATRIX: [[f64; 3]; 3] = [
-        [1.0, 2.0, 3.0],
-        [-4.0, 5.0, -6.0],
-        [-7.0, -8.0, -9.0],
-    ];
+    const MATRIX: [[f64; 3]; 3] = [[1.0, 2.0, 3.0], [-4.0, 5.0, -6.0], [-7.0, -8.0, -9.0]];
 
     fn double_near(a: f64, b: f64, eps: f64) -> bool {
         (a - b).abs() <= eps
@@ -279,7 +292,10 @@ mod tests {
         assert_eq!(rotation_direction(300.0, 30.0), 1.0);
         assert_eq!(rotation_direction(270.0, 60.0), 1.0);
         assert_eq!(rotation_direction(360.0 * 2.0, 15.0), 1.0);
-        assert_eq!(rotation_direction(360.0 * 3.0 + 15.0, -360.0 * 4.0 + 30.0), 1.0);
+        assert_eq!(
+            rotation_direction(360.0 * 3.0 + 15.0, -360.0 * 4.0 + 30.0),
+            1.0
+        );
     }
 
     #[test]
@@ -291,7 +307,10 @@ mod tests {
         assert_eq!(rotation_direction(30.0, 300.0), -1.0);
         assert_eq!(rotation_direction(60.0, 270.0), -1.0);
         assert_eq!(rotation_direction(15.0, -360.0 * 2.0), -1.0);
-        assert_eq!(rotation_direction(-360.0 * 4.0 + 270.0, 360.0 * 5.0 + 180.0), -1.0);
+        assert_eq!(
+            rotation_direction(-360.0 * 4.0 + 270.0, 360.0 * 5.0 + 180.0),
+            -1.0
+        );
     }
 
     #[test]
@@ -409,14 +428,8 @@ mod tests {
 
     #[test]
     fn test_argb_from_linrgb() {
-        assert_eq!(
-            argb_from_linrgb(Vec3::new(25.0, 50.0, 75.0)),
-            0xff89_bce1
-        );
-        assert_eq!(
-            argb_from_linrgb(Vec3::new(0.03, 0.06, 0.12)),
-            0xff01_0204
-        );
+        assert_eq!(argb_from_linrgb(Vec3::new(25.0, 50.0, 75.0)), 0xff89_bce1);
+        assert_eq!(argb_from_linrgb(Vec3::new(0.03, 0.06, 0.12)), 0xff01_0204);
     }
 
     #[test]
@@ -459,15 +472,26 @@ mod tests {
     #[test]
     fn test_lstar_argb_roundtrip() {
         for &lstar in &[0.0, 1.0, 2.0, 8.0, 25.0, 50.0, 75.0, 99.0, 100.0] {
-            assert!(double_near(lstar_from_argb(int_from_lstar(lstar)), lstar, 1.0));
+            assert!(double_near(
+                lstar_from_argb(int_from_lstar(lstar)),
+                lstar,
+                1.0
+            ));
         }
     }
 
     #[test]
     fn test_argb_lstar_roundtrip() {
         for &color in &[
-            0xff00_0000, 0xff01_0101, 0xff02_0202, 0xff11_1111,
-            0xff33_3333, 0xff77_7777, 0xffbb_bbbb, 0xfffe_fefe, 0xffff_ffff,
+            0xff00_0000,
+            0xff01_0101,
+            0xff02_0202,
+            0xff11_1111,
+            0xff33_3333,
+            0xff77_7777,
+            0xffbb_bbbb,
+            0xfffe_fefe,
+            0xffff_ffff,
         ] {
             assert_eq!(int_from_lstar(lstar_from_argb(color)), color);
         }

@@ -17,8 +17,8 @@
 //! CIE L*a*b* color space representation and conversions.
 
 use crate::utils::{
-    argb_from_rgb, delinearized, linearized, red_from_argb, green_from_argb, blue_from_argb,
-    Argb, WHITE_POINT_D65,
+    argb_from_rgb, blue_from_argb, delinearized, green_from_argb, linearized, red_from_argb, Argb,
+    WHITE_POINT_D65,
 };
 
 /// CIE 1976 $L^*a^*b^*$ color representation.

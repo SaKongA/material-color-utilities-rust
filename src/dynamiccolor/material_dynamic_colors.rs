@@ -518,7 +518,11 @@ impl MaterialDynamicColors {
             Arc::new(|s| s.primary_palette),
             Arc::new(|s| {
                 if is_monochrome(s) {
-                    if s.is_dark { 100.0 } else { 0.0 }
+                    if s.is_dark {
+                        100.0
+                    } else {
+                        0.0
+                    }
                 } else if s.is_dark {
                     80.0
                 } else {
@@ -547,7 +551,11 @@ impl MaterialDynamicColors {
             Arc::new(|s| s.primary_palette),
             Arc::new(|s| {
                 if is_monochrome(s) {
-                    if s.is_dark { 10.0 } else { 90.0 }
+                    if s.is_dark {
+                        10.0
+                    } else {
+                        90.0
+                    }
                 } else if s.is_dark {
                     20.0
                 } else {
@@ -570,7 +578,11 @@ impl MaterialDynamicColors {
                 if is_fidelity(s) {
                     s.source_color_hct.tone()
                 } else if is_monochrome(s) {
-                    if s.is_dark { 85.0 } else { 25.0 }
+                    if s.is_dark {
+                        85.0
+                    } else {
+                        25.0
+                    }
                 } else if s.is_dark {
                     30.0
                 } else {
@@ -601,7 +613,11 @@ impl MaterialDynamicColors {
                 if is_fidelity(s) {
                     foreground_tone((Self::primary_container().tone)(s), 4.5)
                 } else if is_monochrome(s) {
-                    if s.is_dark { 0.0 } else { 100.0 }
+                    if s.is_dark {
+                        0.0
+                    } else {
+                        100.0
+                    }
                 } else if s.is_dark {
                     90.0
                 } else {
@@ -660,7 +676,11 @@ impl MaterialDynamicColors {
             Arc::new(|s| s.secondary_palette),
             Arc::new(|s| {
                 if is_monochrome(s) {
-                    if s.is_dark { 10.0 } else { 100.0 }
+                    if s.is_dark {
+                        10.0
+                    } else {
+                        100.0
+                    }
                 } else if s.is_dark {
                     20.0
                 } else {
@@ -682,7 +702,11 @@ impl MaterialDynamicColors {
             Arc::new(|s| {
                 let initial_tone = if s.is_dark { 30.0 } else { 90.0 };
                 if is_monochrome(s) {
-                    if s.is_dark { 30.0 } else { 85.0 }
+                    if s.is_dark {
+                        30.0
+                    } else {
+                        85.0
+                    }
                 } else if !is_fidelity(s) {
                     initial_tone
                 } else {
@@ -716,9 +740,17 @@ impl MaterialDynamicColors {
             Arc::new(|s| s.secondary_palette),
             Arc::new(|s| {
                 if is_monochrome(s) {
-                    if s.is_dark { 90.0 } else { 10.0 }
+                    if s.is_dark {
+                        90.0
+                    } else {
+                        10.0
+                    }
                 } else if !is_fidelity(s) {
-                    if s.is_dark { 90.0 } else { 30.0 }
+                    if s.is_dark {
+                        90.0
+                    } else {
+                        30.0
+                    }
                 } else {
                     foreground_tone((Self::secondary_container().tone)(s), 4.5)
                 }
@@ -741,7 +773,11 @@ impl MaterialDynamicColors {
             Arc::new(|s| s.tertiary_palette),
             Arc::new(|s| {
                 if is_monochrome(s) {
-                    if s.is_dark { 90.0 } else { 25.0 }
+                    if s.is_dark {
+                        90.0
+                    } else {
+                        25.0
+                    }
                 } else if s.is_dark {
                     80.0
                 } else {
@@ -770,7 +806,11 @@ impl MaterialDynamicColors {
             Arc::new(|s| s.tertiary_palette),
             Arc::new(|s| {
                 if is_monochrome(s) {
-                    if s.is_dark { 10.0 } else { 90.0 }
+                    if s.is_dark {
+                        10.0
+                    } else {
+                        90.0
+                    }
                 } else if s.is_dark {
                     20.0
                 } else {
@@ -791,9 +831,17 @@ impl MaterialDynamicColors {
             Arc::new(|s| s.tertiary_palette),
             Arc::new(|s| {
                 if is_monochrome(s) {
-                    if s.is_dark { 60.0 } else { 49.0 }
+                    if s.is_dark {
+                        60.0
+                    } else {
+                        49.0
+                    }
                 } else if !is_fidelity(s) {
-                    if s.is_dark { 30.0 } else { 90.0 }
+                    if s.is_dark {
+                        30.0
+                    } else {
+                        90.0
+                    }
                 } else {
                     let proposed_hct =
                         Hct::from_int(s.tertiary_palette.get(s.source_color_hct.tone()));
@@ -822,9 +870,17 @@ impl MaterialDynamicColors {
             Arc::new(|s| s.tertiary_palette),
             Arc::new(|s| {
                 if is_monochrome(s) {
-                    if s.is_dark { 0.0 } else { 100.0 }
+                    if s.is_dark {
+                        0.0
+                    } else {
+                        100.0
+                    }
                 } else if !is_fidelity(s) {
-                    if s.is_dark { 90.0 } else { 30.0 }
+                    if s.is_dark {
+                        90.0
+                    } else {
+                        30.0
+                    }
                 } else {
                     foreground_tone((Self::tertiary_container().tone)(s), 4.5)
                 }
@@ -902,7 +958,11 @@ impl MaterialDynamicColors {
             Arc::new(|s| s.error_palette),
             Arc::new(|s| {
                 if is_monochrome(s) {
-                    if s.is_dark { 90.0 } else { 10.0 }
+                    if s.is_dark {
+                        90.0
+                    } else {
+                        10.0
+                    }
                 } else if s.is_dark {
                     90.0
                 } else {

@@ -46,4 +46,7 @@ pub use scheme::{
 };
 pub use score::{ranked_suggestions, ScoreOptions};
 pub use temperature::TemperatureCache;
-pub use utils::{Argb, Vec3};
+pub use utils::{
+    alpha_from_argb, argb_from_rgb, argb_from_rgba, blue_from_argb, green_from_argb, hex_from_argb,
+    is_opaque, red_from_argb, rgba_from_argb, Argb, Vec3,
+};

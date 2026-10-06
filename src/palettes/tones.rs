@@ -57,7 +57,8 @@ impl KeyColor {
 
         while lower_tone < upper_tone {
             let mid_tone = (lower_tone + upper_tone) / 2;
-            let is_ascending = self.max_chroma(mid_tone) < self.max_chroma(mid_tone + TONE_STEP_SIZE);
+            let is_ascending =
+                self.max_chroma(mid_tone) < self.max_chroma(mid_tone + TONE_STEP_SIZE);
             let sufficient_chroma = self.max_chroma(mid_tone) >= self.requested_chroma - EPSILON;
 
             if sufficient_chroma {

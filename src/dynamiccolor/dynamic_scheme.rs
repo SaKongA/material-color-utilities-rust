@@ -79,6 +79,51 @@ impl DynamicScheme {
         }
     }
 
+    /// Creates a monochrome scheme.
+    pub fn monochrome(source_color_hct: Hct, is_dark: bool, contrast_level: f64) -> Self {
+        crate::scheme::SchemeMonochrome::new(source_color_hct, is_dark, contrast_level)
+    }
+
+    /// Creates a tonal spot scheme (default Material 3).
+    pub fn tonal_spot(source_color_hct: Hct, is_dark: bool, contrast_level: f64) -> Self {
+        crate::scheme::SchemeTonalSpot::new(source_color_hct, is_dark, contrast_level)
+    }
+
+    /// Creates a vibrant scheme.
+    pub fn vibrant(source_color_hct: Hct, is_dark: bool, contrast_level: f64) -> Self {
+        crate::scheme::SchemeVibrant::new(source_color_hct, is_dark, contrast_level)
+    }
+
+    /// Creates an expressive scheme.
+    pub fn expressive(source_color_hct: Hct, is_dark: bool, contrast_level: f64) -> Self {
+        crate::scheme::SchemeExpressive::new(source_color_hct, is_dark, contrast_level)
+    }
+
+    /// Creates a fidelity scheme.
+    pub fn fidelity(source_color_hct: Hct, is_dark: bool, contrast_level: f64) -> Self {
+        crate::scheme::SchemeFidelity::new(source_color_hct, is_dark, contrast_level)
+    }
+
+    /// Creates a content scheme.
+    pub fn content(source_color_hct: Hct, is_dark: bool, contrast_level: f64) -> Self {
+        crate::scheme::SchemeContent::new(source_color_hct, is_dark, contrast_level)
+    }
+
+    /// Creates a neutral scheme.
+    pub fn neutral(source_color_hct: Hct, is_dark: bool, contrast_level: f64) -> Self {
+        crate::scheme::SchemeNeutral::new(source_color_hct, is_dark, contrast_level)
+    }
+
+    /// Creates a rainbow scheme.
+    pub fn rainbow(source_color_hct: Hct, is_dark: bool, contrast_level: f64) -> Self {
+        crate::scheme::SchemeRainbow::new(source_color_hct, is_dark, contrast_level)
+    }
+
+    /// Creates a fruit salad scheme.
+    pub fn fruit_salad(source_color_hct: Hct, is_dark: bool, contrast_level: f64) -> Self {
+        crate::scheme::SchemeFruitSalad::new(source_color_hct, is_dark, contrast_level)
+    }
+
     /// Rotates a hue according to a mapping of hue ranges to rotation degrees.
     pub fn get_rotated_hue(source_color: Hct, hues: &[f64], rotations: &[f64]) -> f64 {
         let source_hue = source_color.hue();
@@ -327,58 +372,166 @@ impl DynamicScheme {
     // C++ compatibility getters (`get_*`)
     // -------------------------------------------------------------------------
 
-    pub fn get_primary_palette_key_color(&self) -> Argb { self.primary_palette_key_color() }
-    pub fn get_secondary_palette_key_color(&self) -> Argb { self.secondary_palette_key_color() }
-    pub fn get_tertiary_palette_key_color(&self) -> Argb { self.tertiary_palette_key_color() }
-    pub fn get_neutral_palette_key_color(&self) -> Argb { self.neutral_palette_key_color() }
-    pub fn get_neutral_variant_palette_key_color(&self) -> Argb { self.neutral_variant_palette_key_color() }
-    pub fn get_background(&self) -> Argb { self.background() }
-    pub fn get_on_background(&self) -> Argb { self.on_background() }
-    pub fn get_surface(&self) -> Argb { self.surface() }
-    pub fn get_surface_dim(&self) -> Argb { self.surface_dim() }
-    pub fn get_surface_bright(&self) -> Argb { self.surface_bright() }
-    pub fn get_surface_container_lowest(&self) -> Argb { self.surface_container_lowest() }
-    pub fn get_surface_container_low(&self) -> Argb { self.surface_container_low() }
-    pub fn get_surface_container(&self) -> Argb { self.surface_container() }
-    pub fn get_surface_container_high(&self) -> Argb { self.surface_container_high() }
-    pub fn get_surface_container_highest(&self) -> Argb { self.surface_container_highest() }
-    pub fn get_on_surface(&self) -> Argb { self.on_surface() }
-    pub fn get_surface_variant(&self) -> Argb { self.surface_variant() }
-    pub fn get_on_surface_variant(&self) -> Argb { self.on_surface_variant() }
-    pub fn get_inverse_surface(&self) -> Argb { self.inverse_surface() }
-    pub fn get_inverse_on_surface(&self) -> Argb { self.inverse_on_surface() }
-    pub fn get_outline(&self) -> Argb { self.outline() }
-    pub fn get_outline_variant(&self) -> Argb { self.outline_variant() }
-    pub fn get_shadow(&self) -> Argb { self.shadow() }
-    pub fn get_scrim(&self) -> Argb { self.scrim() }
-    pub fn get_surface_tint(&self) -> Argb { self.surface_tint() }
-    pub fn get_primary(&self) -> Argb { self.primary() }
-    pub fn get_on_primary(&self) -> Argb { self.on_primary() }
-    pub fn get_primary_container(&self) -> Argb { self.primary_container() }
-    pub fn get_on_primary_container(&self) -> Argb { self.on_primary_container() }
-    pub fn get_inverse_primary(&self) -> Argb { self.inverse_primary() }
-    pub fn get_secondary(&self) -> Argb { self.secondary() }
-    pub fn get_on_secondary(&self) -> Argb { self.on_secondary() }
-    pub fn get_secondary_container(&self) -> Argb { self.secondary_container() }
-    pub fn get_on_secondary_container(&self) -> Argb { self.on_secondary_container() }
-    pub fn get_tertiary(&self) -> Argb { self.tertiary() }
-    pub fn get_on_tertiary(&self) -> Argb { self.on_tertiary() }
-    pub fn get_tertiary_container(&self) -> Argb { self.tertiary_container() }
-    pub fn get_on_tertiary_container(&self) -> Argb { self.on_tertiary_container() }
-    pub fn get_error(&self) -> Argb { self.error() }
-    pub fn get_on_error(&self) -> Argb { self.on_error() }
-    pub fn get_error_container(&self) -> Argb { self.error_container() }
-    pub fn get_on_error_container(&self) -> Argb { self.on_error_container() }
-    pub fn get_primary_fixed(&self) -> Argb { self.primary_fixed() }
-    pub fn get_primary_fixed_dim(&self) -> Argb { self.primary_fixed_dim() }
-    pub fn get_on_primary_fixed(&self) -> Argb { self.on_primary_fixed() }
-    pub fn get_on_primary_fixed_variant(&self) -> Argb { self.on_primary_fixed_variant() }
-    pub fn get_secondary_fixed(&self) -> Argb { self.secondary_fixed() }
-    pub fn get_secondary_fixed_dim(&self) -> Argb { self.secondary_fixed_dim() }
-    pub fn get_on_secondary_fixed(&self) -> Argb { self.on_secondary_fixed() }
-    pub fn get_on_secondary_fixed_variant(&self) -> Argb { self.on_secondary_fixed_variant() }
-    pub fn get_tertiary_fixed(&self) -> Argb { self.tertiary_fixed() }
-    pub fn get_tertiary_fixed_dim(&self) -> Argb { self.tertiary_fixed_dim() }
-    pub fn get_on_tertiary_fixed(&self) -> Argb { self.on_tertiary_fixed() }
-    pub fn get_on_tertiary_fixed_variant(&self) -> Argb { self.on_tertiary_fixed_variant() }
+    pub fn get_primary_palette_key_color(&self) -> Argb {
+        self.primary_palette_key_color()
+    }
+    pub fn get_secondary_palette_key_color(&self) -> Argb {
+        self.secondary_palette_key_color()
+    }
+    pub fn get_tertiary_palette_key_color(&self) -> Argb {
+        self.tertiary_palette_key_color()
+    }
+    pub fn get_neutral_palette_key_color(&self) -> Argb {
+        self.neutral_palette_key_color()
+    }
+    pub fn get_neutral_variant_palette_key_color(&self) -> Argb {
+        self.neutral_variant_palette_key_color()
+    }
+    pub fn get_background(&self) -> Argb {
+        self.background()
+    }
+    pub fn get_on_background(&self) -> Argb {
+        self.on_background()
+    }
+    pub fn get_surface(&self) -> Argb {
+        self.surface()
+    }
+    pub fn get_surface_dim(&self) -> Argb {
+        self.surface_dim()
+    }
+    pub fn get_surface_bright(&self) -> Argb {
+        self.surface_bright()
+    }
+    pub fn get_surface_container_lowest(&self) -> Argb {
+        self.surface_container_lowest()
+    }
+    pub fn get_surface_container_low(&self) -> Argb {
+        self.surface_container_low()
+    }
+    pub fn get_surface_container(&self) -> Argb {
+        self.surface_container()
+    }
+    pub fn get_surface_container_high(&self) -> Argb {
+        self.surface_container_high()
+    }
+    pub fn get_surface_container_highest(&self) -> Argb {
+        self.surface_container_highest()
+    }
+    pub fn get_on_surface(&self) -> Argb {
+        self.on_surface()
+    }
+    pub fn get_surface_variant(&self) -> Argb {
+        self.surface_variant()
+    }
+    pub fn get_on_surface_variant(&self) -> Argb {
+        self.on_surface_variant()
+    }
+    pub fn get_inverse_surface(&self) -> Argb {
+        self.inverse_surface()
+    }
+    pub fn get_inverse_on_surface(&self) -> Argb {
+        self.inverse_on_surface()
+    }
+    pub fn get_outline(&self) -> Argb {
+        self.outline()
+    }
+    pub fn get_outline_variant(&self) -> Argb {
+        self.outline_variant()
+    }
+    pub fn get_shadow(&self) -> Argb {
+        self.shadow()
+    }
+    pub fn get_scrim(&self) -> Argb {
+        self.scrim()
+    }
+    pub fn get_surface_tint(&self) -> Argb {
+        self.surface_tint()
+    }
+    pub fn get_primary(&self) -> Argb {
+        self.primary()
+    }
+    pub fn get_on_primary(&self) -> Argb {
+        self.on_primary()
+    }
+    pub fn get_primary_container(&self) -> Argb {
+        self.primary_container()
+    }
+    pub fn get_on_primary_container(&self) -> Argb {
+        self.on_primary_container()
+    }
+    pub fn get_inverse_primary(&self) -> Argb {
+        self.inverse_primary()
+    }
+    pub fn get_secondary(&self) -> Argb {
+        self.secondary()
+    }
+    pub fn get_on_secondary(&self) -> Argb {
+        self.on_secondary()
+    }
+    pub fn get_secondary_container(&self) -> Argb {
+        self.secondary_container()
+    }
+    pub fn get_on_secondary_container(&self) -> Argb {
+        self.on_secondary_container()
+    }
+    pub fn get_tertiary(&self) -> Argb {
+        self.tertiary()
+    }
+    pub fn get_on_tertiary(&self) -> Argb {
+        self.on_tertiary()
+    }
+    pub fn get_tertiary_container(&self) -> Argb {
+        self.tertiary_container()
+    }
+    pub fn get_on_tertiary_container(&self) -> Argb {
+        self.on_tertiary_container()
+    }
+    pub fn get_error(&self) -> Argb {
+        self.error()
+    }
+    pub fn get_on_error(&self) -> Argb {
+        self.on_error()
+    }
+    pub fn get_error_container(&self) -> Argb {
+        self.error_container()
+    }
+    pub fn get_on_error_container(&self) -> Argb {
+        self.on_error_container()
+    }
+    pub fn get_primary_fixed(&self) -> Argb {
+        self.primary_fixed()
+    }
+    pub fn get_primary_fixed_dim(&self) -> Argb {
+        self.primary_fixed_dim()
+    }
+    pub fn get_on_primary_fixed(&self) -> Argb {
+        self.on_primary_fixed()
+    }
+    pub fn get_on_primary_fixed_variant(&self) -> Argb {
+        self.on_primary_fixed_variant()
+    }
+    pub fn get_secondary_fixed(&self) -> Argb {
+        self.secondary_fixed()
+    }
+    pub fn get_secondary_fixed_dim(&self) -> Argb {
+        self.secondary_fixed_dim()
+    }
+    pub fn get_on_secondary_fixed(&self) -> Argb {
+        self.on_secondary_fixed()
+    }
+    pub fn get_on_secondary_fixed_variant(&self) -> Argb {
+        self.on_secondary_fixed_variant()
+    }
+    pub fn get_tertiary_fixed(&self) -> Argb {
+        self.tertiary_fixed()
+    }
+    pub fn get_tertiary_fixed_dim(&self) -> Argb {
+        self.tertiary_fixed_dim()
+    }
+    pub fn get_on_tertiary_fixed(&self) -> Argb {
+        self.on_tertiary_fixed()
+    }
+    pub fn get_on_tertiary_fixed_variant(&self) -> Argb {
+        self.on_tertiary_fixed_variant()
+    }
 }

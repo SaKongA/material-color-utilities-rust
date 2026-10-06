@@ -239,8 +239,8 @@ fn maximize(
             continue;
         }
 
-        let mut temp = ((half_r * half_r + half_g * half_g + half_b * half_b) as f64)
-            / (half_w as f64);
+        let mut temp =
+            ((half_r * half_r + half_g * half_g + half_b * half_b) as f64) / (half_w as f64);
 
         half_r = whole_r - half_r;
         half_g = whole_g - half_g;
@@ -250,8 +250,7 @@ fn maximize(
             continue;
         }
 
-        temp += ((half_r * half_r + half_g * half_g + half_b * half_b) as f64)
-            / (half_w as f64);
+        temp += ((half_r * half_r + half_g * half_g + half_b * half_b) as f64) / (half_w as f64);
 
         if temp > max {
             max = temp;

@@ -50,8 +50,9 @@ pub fn foreground_tone(bg_tone: f64, ratio: f64) -> f64 {
     let prefer_lighter = tone_prefers_light_foreground(bg_tone);
 
     if prefer_lighter {
-        let negligible_difference =
-            (lighter_ratio - darker_ratio).abs() < 0.1 && lighter_ratio < ratio && darker_ratio < ratio;
+        let negligible_difference = (lighter_ratio - darker_ratio).abs() < 0.1
+            && lighter_ratio < ratio
+            && darker_ratio < ratio;
         if lighter_ratio >= ratio || lighter_ratio >= darker_ratio || negligible_difference {
             lighter_tone
         } else {
@@ -148,11 +149,7 @@ impl DynamicColor {
     }
 
     /// Convenience constructor requiring only name, palette, and tone.
-    pub fn from_palette(
-        name: impl Into<String>,
-        palette: PaletteFn,
-        tone: ToneFn,
-    ) -> Self {
+    pub fn from_palette(name: impl Into<String>, palette: PaletteFn, tone: ToneFn) -> Self {
         Self {
             name: name.into(),
             palette,
@@ -349,7 +346,11 @@ impl DynamicColor {
                 let prefers_light = tone_prefers_light_foreground(bg_tone_1)
                     || tone_prefers_light_foreground(bg_tone_2);
                 if prefers_light {
-                    return if light_option < 0.0 { 100.0 } else { light_option };
+                    return if light_option < 0.0 {
+                        100.0
+                    } else {
+                        light_option
+                    };
                 }
                 if availables.len() == 1 {
                     return availables[0];

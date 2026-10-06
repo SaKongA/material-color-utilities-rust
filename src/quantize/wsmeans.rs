@@ -147,8 +147,16 @@ pub fn quantize_wsmeans(
         cluster_indices.push((rng_indices.next() as usize) % cluster_count);
     }
 
-    let mut distance_to_index_matrix =
-        vec![vec![DistanceToIndex { distance: 0.0, index: 0 }; cluster_count]; cluster_count];
+    let mut distance_to_index_matrix = vec![
+        vec![
+            DistanceToIndex {
+                distance: 0.0,
+                index: 0
+            };
+            cluster_count
+        ];
+        cluster_count
+    ];
 
     let mut pixel_count_sums = [0usize; 256];
 

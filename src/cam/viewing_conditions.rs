@@ -88,8 +88,8 @@ pub fn create_viewing_conditions(
     let k = 1.0 / (5.0 * adapting_luminance + 1.0);
     let k4 = k * k * k * k;
     let k4f = 1.0 - k4;
-    let fl = (k4 * adapting_luminance)
-        + (0.1 * k4f * k4f * (5.0 * adapting_luminance).powf(1.0 / 3.0));
+    let fl =
+        (k4 * adapting_luminance) + (0.1 * k4f * k4f * (5.0 * adapting_luminance).powf(1.0 / 3.0));
     let fl_root = fl.powf(0.25);
     let n = y_from_lstar(background_lstar_corrected) / white_point[1];
     let z = 1.48 + n.sqrt();
@@ -172,11 +172,26 @@ mod tests {
         let computed = default_with_background_lstar(50.0);
         let expected = DEFAULT_VIEWING_CONDITIONS;
 
-        assert!(double_near(computed.adapting_luminance, expected.adapting_luminance, 1e-5));
-        assert!(double_near(computed.background_lstar, expected.background_lstar, 1e-6));
+        assert!(double_near(
+            computed.adapting_luminance,
+            expected.adapting_luminance,
+            1e-5
+        ));
+        assert!(double_near(
+            computed.background_lstar,
+            expected.background_lstar,
+            1e-6
+        ));
         assert!(double_near(computed.surround, expected.surround, 1e-6));
-        assert_eq!(computed.discounting_illuminant, expected.discounting_illuminant);
-        assert!(double_near(computed.background_y_to_white_point_y, expected.background_y_to_white_point_y, 1e-6));
+        assert_eq!(
+            computed.discounting_illuminant,
+            expected.discounting_illuminant
+        );
+        assert!(double_near(
+            computed.background_y_to_white_point_y,
+            expected.background_y_to_white_point_y,
+            1e-6
+        ));
         assert!(double_near(computed.aw, expected.aw, 1e-5));
         assert!(double_near(computed.nbb, expected.nbb, 1e-6));
         assert!(double_near(computed.ncb, expected.ncb, 1e-6));

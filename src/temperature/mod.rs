@@ -298,19 +298,39 @@ mod tests {
     #[test]
     fn test_raw_temperature() {
         let blue_hct = Hct::from_int(0xff00_00ff);
-        assert!(double_near(TemperatureCache::raw_temperature(blue_hct), -1.393, 0.001));
+        assert!(double_near(
+            TemperatureCache::raw_temperature(blue_hct),
+            -1.393,
+            0.001
+        ));
 
         let red_hct = Hct::from_int(0xffff_0000);
-        assert!(double_near(TemperatureCache::raw_temperature(red_hct), 2.351, 0.001));
+        assert!(double_near(
+            TemperatureCache::raw_temperature(red_hct),
+            2.351,
+            0.001
+        ));
 
         let green_hct = Hct::from_int(0xff00_ff00);
-        assert!(double_near(TemperatureCache::raw_temperature(green_hct), -0.267, 0.001));
+        assert!(double_near(
+            TemperatureCache::raw_temperature(green_hct),
+            -0.267,
+            0.001
+        ));
 
         let white_hct = Hct::from_int(0xffff_ffff);
-        assert!(double_near(TemperatureCache::raw_temperature(white_hct), -0.5, 0.001));
+        assert!(double_near(
+            TemperatureCache::raw_temperature(white_hct),
+            -0.5,
+            0.001
+        ));
 
         let black_hct = Hct::from_int(0xff00_0000);
-        assert!(double_near(TemperatureCache::raw_temperature(black_hct), -0.5, 0.001));
+        assert!(double_near(
+            TemperatureCache::raw_temperature(black_hct),
+            -0.5,
+            0.001
+        ));
     }
 
     #[test]

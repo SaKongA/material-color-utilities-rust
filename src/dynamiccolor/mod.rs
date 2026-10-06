@@ -29,7 +29,8 @@ pub mod variant;
 pub use contrast_curve::ContrastCurve;
 pub use dynamic_color::{
     enable_light_foreground, foreground_tone, tone_allows_light_foreground,
-    tone_prefers_light_foreground, DynamicColor, DynamicColorFn, PaletteFn, ToneDeltaPairFn, ToneFn,
+    tone_prefers_light_foreground, DynamicColor, DynamicColorFn, PaletteFn, ToneDeltaPairFn,
+    ToneFn,
 };
 pub use dynamic_scheme::DynamicScheme;
 pub use material_dynamic_colors::MaterialDynamicColors;

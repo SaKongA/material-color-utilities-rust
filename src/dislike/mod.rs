@@ -47,8 +47,16 @@ mod tests {
     #[test]
     fn test_monk_skin_tones_liked() {
         let monk_skin_tones = [
-            0xfff6_ede4, 0xfff3_e7db, 0xfff7_ead0, 0xffea_daba, 0xffd7_bd96,
-            0xffa0_7e56, 0xff82_5c43, 0xff60_4134, 0xff3a_312a, 0xff29_2420,
+            0xfff6_ede4,
+            0xfff3_e7db,
+            0xfff7_ead0,
+            0xffea_daba,
+            0xffd7_bd96,
+            0xffa0_7e56,
+            0xff82_5c43,
+            0xff60_4134,
+            0xff3a_312a,
+            0xff29_2420,
         ];
         for &argb in &monk_skin_tones {
             assert!(!is_disliked(Hct::from_int(argb)));
@@ -58,7 +66,11 @@ mod tests {
     #[test]
     fn test_bile_colors_disliked_and_fixed() {
         let bile_colors = [
-            0xff95_884b, 0xff71_6b40, 0xffb0_8e00, 0xff4c_4308, 0xff46_4521,
+            0xff95_884b,
+            0xff71_6b40,
+            0xffb0_8e00,
+            0xff4c_4308,
+            0xff46_4521,
         ];
         for &argb in &bile_colors {
             let bile = Hct::from_int(argb);

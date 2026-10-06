@@ -142,7 +142,13 @@ mod tests {
         argb_to_population.insert(0xffff_ffff, 1);
         argb_to_population.insert(0xff00_00ff, 1);
 
-        let ranked = ranked_suggestions(&argb_to_population, &ScoreOptions { desired: 4, ..Default::default() });
+        let ranked = ranked_suggestions(
+            &argb_to_population,
+            &ScoreOptions {
+                desired: 4,
+                ..Default::default()
+            },
+        );
         assert_eq!(ranked.len(), 1);
         assert_eq!(ranked[0], 0xff00_00ff);
     }
@@ -154,7 +160,13 @@ mod tests {
         argb_to_population.insert(0xff00_ff00, 1);
         argb_to_population.insert(0xff00_00ff, 1);
 
-        let ranked = ranked_suggestions(&argb_to_population, &ScoreOptions { desired: 4, ..Default::default() });
+        let ranked = ranked_suggestions(
+            &argb_to_population,
+            &ScoreOptions {
+                desired: 4,
+                ..Default::default()
+            },
+        );
         assert_eq!(ranked.len(), 3);
         assert_eq!(ranked[0], 0xffff_0000);
         assert_eq!(ranked[1], 0xff00_ff00);
@@ -166,7 +178,13 @@ mod tests {
         let mut argb_to_population = BTreeMap::new();
         argb_to_population.insert(0xff00_0000, 1);
 
-        let ranked = ranked_suggestions(&argb_to_population, &ScoreOptions { desired: 4, ..Default::default() });
+        let ranked = ranked_suggestions(
+            &argb_to_population,
+            &ScoreOptions {
+                desired: 4,
+                ..Default::default()
+            },
+        );
         assert_eq!(ranked.len(), 1);
         assert_eq!(ranked[0], 0xff42_85f4);
     }
@@ -177,7 +195,13 @@ mod tests {
         argb_to_population.insert(0xff00_8772, 1);
         argb_to_population.insert(0xff31_8477, 1);
 
-        let ranked = ranked_suggestions(&argb_to_population, &ScoreOptions { desired: 4, ..Default::default() });
+        let ranked = ranked_suggestions(
+            &argb_to_population,
+            &ScoreOptions {
+                desired: 4,
+                ..Default::default()
+            },
+        );
         assert_eq!(ranked.len(), 1);
         assert_eq!(ranked[0], 0xff00_8772);
     }
@@ -189,7 +213,13 @@ mod tests {
         argb_to_population.insert(0xff00_8587, 1);
         argb_to_population.insert(0xff00_7ebc, 1);
 
-        let ranked = ranked_suggestions(&argb_to_population, &ScoreOptions { desired: 2, ..Default::default() });
+        let ranked = ranked_suggestions(
+            &argb_to_population,
+            &ScoreOptions {
+                desired: 2,
+                ..Default::default()
+            },
+        );
         assert_eq!(ranked.len(), 2);
         assert_eq!(ranked[0], 0xff00_7ebc);
         assert_eq!(ranked[1], 0xff00_8772);
@@ -204,7 +234,11 @@ mod tests {
         scenario1.insert(0xff83_5c0d, 49);
         let ranked1 = ranked_suggestions(
             &scenario1,
-            &ScoreOptions { desired: 3, fallback_color_argb: 0xff8d_3819, filter: false },
+            &ScoreOptions {
+                desired: 3,
+                fallback_color_argb: 0xff8d_3819,
+                filter: false,
+            },
         );
         assert_eq!(ranked1.len(), 3);
         assert_eq!(ranked1[0], 0xff7e_a16d);
@@ -219,7 +253,11 @@ mod tests {
         scenario2.insert(0xffa0_8f5d, 81);
         let ranked2 = ranked_suggestions(
             &scenario2,
-            &ScoreOptions { desired: 4, fallback_color_argb: 0xff7d_772b, filter: true },
+            &ScoreOptions {
+                desired: 4,
+                fallback_color_argb: 0xff7d_772b,
+                filter: true,
+            },
         );
         assert_eq!(ranked2.len(), 3);
         assert_eq!(ranked2[0], 0xff32_05cc);

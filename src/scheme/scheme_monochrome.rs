@@ -60,34 +60,158 @@ mod tests {
     #[test]
     fn test_dark_theme_monochrome_spec() {
         let scheme = SchemeMonochrome::new(Hct::from_int(0xff0000ff), true, 0.0);
-        assert!(near(MaterialDynamicColors::primary().get_hct(&scheme).tone(), 100.0, 1.0));
-        assert!(near(MaterialDynamicColors::on_primary().get_hct(&scheme).tone(), 10.0, 1.0));
-        assert!(near(MaterialDynamicColors::primary_container().get_hct(&scheme).tone(), 85.0, 1.0));
-        assert!(near(MaterialDynamicColors::on_primary_container().get_hct(&scheme).tone(), 0.0, 1.0));
-        assert!(near(MaterialDynamicColors::secondary().get_hct(&scheme).tone(), 80.0, 1.0));
-        assert!(near(MaterialDynamicColors::on_secondary().get_hct(&scheme).tone(), 10.0, 1.0));
-        assert!(near(MaterialDynamicColors::secondary_container().get_hct(&scheme).tone(), 30.0, 1.0));
-        assert!(near(MaterialDynamicColors::on_secondary_container().get_hct(&scheme).tone(), 90.0, 1.0));
-        assert!(near(MaterialDynamicColors::tertiary().get_hct(&scheme).tone(), 90.0, 1.0));
-        assert!(near(MaterialDynamicColors::on_tertiary().get_hct(&scheme).tone(), 10.0, 1.0));
-        assert!(near(MaterialDynamicColors::tertiary_container().get_hct(&scheme).tone(), 60.0, 1.0));
-        assert!(near(MaterialDynamicColors::on_tertiary_container().get_hct(&scheme).tone(), 0.0, 1.0));
+        assert!(near(
+            MaterialDynamicColors::primary().get_hct(&scheme).tone(),
+            100.0,
+            1.0
+        ));
+        assert!(near(
+            MaterialDynamicColors::on_primary().get_hct(&scheme).tone(),
+            10.0,
+            1.0
+        ));
+        assert!(near(
+            MaterialDynamicColors::primary_container()
+                .get_hct(&scheme)
+                .tone(),
+            85.0,
+            1.0
+        ));
+        assert!(near(
+            MaterialDynamicColors::on_primary_container()
+                .get_hct(&scheme)
+                .tone(),
+            0.0,
+            1.0
+        ));
+        assert!(near(
+            MaterialDynamicColors::secondary().get_hct(&scheme).tone(),
+            80.0,
+            1.0
+        ));
+        assert!(near(
+            MaterialDynamicColors::on_secondary()
+                .get_hct(&scheme)
+                .tone(),
+            10.0,
+            1.0
+        ));
+        assert!(near(
+            MaterialDynamicColors::secondary_container()
+                .get_hct(&scheme)
+                .tone(),
+            30.0,
+            1.0
+        ));
+        assert!(near(
+            MaterialDynamicColors::on_secondary_container()
+                .get_hct(&scheme)
+                .tone(),
+            90.0,
+            1.0
+        ));
+        assert!(near(
+            MaterialDynamicColors::tertiary().get_hct(&scheme).tone(),
+            90.0,
+            1.0
+        ));
+        assert!(near(
+            MaterialDynamicColors::on_tertiary().get_hct(&scheme).tone(),
+            10.0,
+            1.0
+        ));
+        assert!(near(
+            MaterialDynamicColors::tertiary_container()
+                .get_hct(&scheme)
+                .tone(),
+            60.0,
+            1.0
+        ));
+        assert!(near(
+            MaterialDynamicColors::on_tertiary_container()
+                .get_hct(&scheme)
+                .tone(),
+            0.0,
+            1.0
+        ));
     }
 
     #[test]
     fn test_light_theme_monochrome_spec() {
         let scheme = SchemeMonochrome::new(Hct::from_int(0xff0000ff), false, 0.0);
-        assert!(near(MaterialDynamicColors::primary().get_hct(&scheme).tone(), 0.0, 1.0));
-        assert!(near(MaterialDynamicColors::on_primary().get_hct(&scheme).tone(), 90.0, 1.0));
-        assert!(near(MaterialDynamicColors::primary_container().get_hct(&scheme).tone(), 25.0, 1.0));
-        assert!(near(MaterialDynamicColors::on_primary_container().get_hct(&scheme).tone(), 100.0, 1.0));
-        assert!(near(MaterialDynamicColors::secondary().get_hct(&scheme).tone(), 40.0, 1.0));
-        assert!(near(MaterialDynamicColors::on_secondary().get_hct(&scheme).tone(), 100.0, 1.0));
-        assert!(near(MaterialDynamicColors::secondary_container().get_hct(&scheme).tone(), 85.0, 1.0));
-        assert!(near(MaterialDynamicColors::on_secondary_container().get_hct(&scheme).tone(), 10.0, 1.0));
-        assert!(near(MaterialDynamicColors::tertiary().get_hct(&scheme).tone(), 25.0, 1.0));
-        assert!(near(MaterialDynamicColors::on_tertiary().get_hct(&scheme).tone(), 90.0, 1.0));
-        assert!(near(MaterialDynamicColors::tertiary_container().get_hct(&scheme).tone(), 49.0, 1.0));
-        assert!(near(MaterialDynamicColors::on_tertiary_container().get_hct(&scheme).tone(), 100.0, 1.0));
+        assert!(near(
+            MaterialDynamicColors::primary().get_hct(&scheme).tone(),
+            0.0,
+            1.0
+        ));
+        assert!(near(
+            MaterialDynamicColors::on_primary().get_hct(&scheme).tone(),
+            90.0,
+            1.0
+        ));
+        assert!(near(
+            MaterialDynamicColors::primary_container()
+                .get_hct(&scheme)
+                .tone(),
+            25.0,
+            1.0
+        ));
+        assert!(near(
+            MaterialDynamicColors::on_primary_container()
+                .get_hct(&scheme)
+                .tone(),
+            100.0,
+            1.0
+        ));
+        assert!(near(
+            MaterialDynamicColors::secondary().get_hct(&scheme).tone(),
+            40.0,
+            1.0
+        ));
+        assert!(near(
+            MaterialDynamicColors::on_secondary()
+                .get_hct(&scheme)
+                .tone(),
+            100.0,
+            1.0
+        ));
+        assert!(near(
+            MaterialDynamicColors::secondary_container()
+                .get_hct(&scheme)
+                .tone(),
+            85.0,
+            1.0
+        ));
+        assert!(near(
+            MaterialDynamicColors::on_secondary_container()
+                .get_hct(&scheme)
+                .tone(),
+            10.0,
+            1.0
+        ));
+        assert!(near(
+            MaterialDynamicColors::tertiary().get_hct(&scheme).tone(),
+            25.0,
+            1.0
+        ));
+        assert!(near(
+            MaterialDynamicColors::on_tertiary().get_hct(&scheme).tone(),
+            90.0,
+            1.0
+        ));
+        assert!(near(
+            MaterialDynamicColors::tertiary_container()
+                .get_hct(&scheme)
+                .tone(),
+            49.0,
+            1.0
+        ));
+        assert!(near(
+            MaterialDynamicColors::on_tertiary_container()
+                .get_hct(&scheme)
+                .tone(),
+            100.0,
+            1.0
+        ));
     }
 }
