@@ -140,6 +140,11 @@ impl TemperatureCache {
     }
 
     /// Returns a color that aesthetically complements the input color.
+    pub fn complement(&mut self) -> Hct {
+        self.get_complement()
+    }
+
+    /// Returns a color that aesthetically complements the input color.
     pub fn get_complement(&mut self) -> Hct {
         if let Some(complement) = self.precomputed_complement {
             return complement;
@@ -197,6 +202,11 @@ impl TemperatureCache {
     /// Returns 5 colors that pair well with the input color (12 divisions).
     pub fn get_analogous_colors(&mut self) -> Vec<Hct> {
         self.get_analogous_colors_with_params(5, 12)
+    }
+
+    /// Returns `count` colors equidistant in temperature across `divisions` wheel sections.
+    pub fn analogous_colors(&mut self, count: usize, divisions: usize) -> Vec<Hct> {
+        self.get_analogous_colors_with_params(count, divisions)
     }
 
     /// Returns `count` colors equidistant in temperature across `divisions` wheel sections.

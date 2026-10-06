@@ -82,6 +82,11 @@ impl Hct {
         hct
     }
 
+    /// Creates an HCT color from an ARGB integer (alias for `from_int`).
+    pub fn from_argb(argb: Argb) -> Self {
+        Self::from_int(argb)
+    }
+
     /// Returns the hue of the color in degrees `[0.0, 360.0)`.
     #[inline]
     pub fn hue(&self) -> f64 {

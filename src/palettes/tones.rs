@@ -90,7 +90,7 @@ impl KeyColor {
 }
 
 /// A Tonal Palette provides shades of a color with different lightness (Tone) values.
-#[derive(Debug, Clone, PartialEq)]
+#[derive(Debug, Clone, Copy, PartialEq)]
 pub struct TonalPalette {
     hue: f64,
     chroma: f64,
@@ -98,6 +98,11 @@ pub struct TonalPalette {
 }
 
 impl TonalPalette {
+    /// Creates a tonal palette from hue and chroma.
+    pub fn new(hue: f64, chroma: f64) -> Self {
+        Self::from_hue_and_chroma(hue, chroma)
+    }
+
     /// Creates a tonal palette from an ARGB integer.
     pub fn from_argb(argb: Argb) -> Self {
         let cam = cam_from_int(argb);
